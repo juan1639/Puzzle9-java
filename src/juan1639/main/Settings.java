@@ -17,5 +17,6 @@ public class Settings {
 	public static final Color AMARILLO = new Color(245, 235, 1);
 	public static final Color BLANCO = new Color(247, 247, 247);
 	public static final Color AZUL = new Color(9, 125, 185);
+	public static final Color AZUL_CLARO = new Color(9, 225, 185);
 	public static final Color VERDE = new Color(50, 195, 9);
 }
