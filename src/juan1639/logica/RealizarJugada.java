@@ -9,6 +9,8 @@ public class RealizarJugada {
 	private Integer indice;
 	private Integer fila;
 	private Integer columna;
+	
+	private Integer indiceVecinoCasillaVacia;
 
 	public RealizarJugada(Integer valor, Integer indice, Integer fila, Integer columna) {
 		super();
@@ -16,19 +18,24 @@ public class RealizarJugada {
 		this.indice = indice;
 		this.fila = fila;
 		this.columna = columna;
+		// Default -999 (index out range)
+		this.indiceVecinoCasillaVacia = -999;
 
-		checkVecinos();
+		if (checkVecinos()) {
+			
+			Board.swapCasillaVaciaPorJugadaRealizada(getIndiceVecinoCasillaVacia(), this.indice);
+		}
 	}
 
 	public RealizarJugada() {
 	}
 
-	private void checkVecinos() {
+	private Boolean checkVecinos() {
 
 		// Check Si hay vecino ARRIBA
 		if (fila - 1 >= 0 && fila - 1 <= 1) {
 			//(orden parametros --> filaOffSet, columnaOffSet)
-			if (checkVecinoEsLaCasillaVacia(-1, 0)) return;
+			if (checkVecinoEsLaCasillaVacia(-1, 0)) return true;
 			
 			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
@@ -36,7 +43,7 @@ public class RealizarJugada {
 		// Check Si hay vecino DERECHA
 		if (columna + 1 >= 1 && columna + 1 <= 2) {
 			//(orden parametros --> filaOffSet, columnaOffSet)
-			if (checkVecinoEsLaCasillaVacia(0, 1)) return;
+			if (checkVecinoEsLaCasillaVacia(0, 1)) return true;
 
 			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
@@ -44,7 +51,7 @@ public class RealizarJugada {
 		// Check Si hay vecino ABAJO
 		if (fila + 1 >= 1 && fila + 1 <= 2) {
 			//(orden parametros --> filaOffSet, columnaOffSet)
-			if (checkVecinoEsLaCasillaVacia(1, 0)) return;
+			if (checkVecinoEsLaCasillaVacia(1, 0)) return true;
 
 			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
@@ -52,10 +59,12 @@ public class RealizarJugada {
 		// Check Si hay vecino IZQUIERDA
 		if (columna - 1 >= 0 && columna - 1 <= 1) {
 			//(orden parametros --> filaOffSet, columnaOffSet)
-			if (checkVecinoEsLaCasillaVacia(0, -1)) return;
+			if (checkVecinoEsLaCasillaVacia(0, -1)) return true;
 
 			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
+		
+		return false;
 	}
 
 	private Boolean checkVecinoEsLaCasillaVacia(Integer offSetFila, Integer offSetColumna) {
@@ -66,9 +75,19 @@ public class RealizarJugada {
 		
 		if (Board.getArrayCasillas()[calculaIndiceVecino].getValor() == Settings.CASILLA_VACIA_INVISIBLE) {
 			System.out.println("true vecino vacia");
+			setIndiceVecinoCasillaVacia(calculaIndiceVecino);
 			return true;
 		}
 		
 		return false;
+	}
+	
+	// Getters & Setters
+	public Integer getIndiceVecinoCasillaVacia() {
+		return indiceVecinoCasillaVacia;
+	}
+
+	public void setIndiceVecinoCasillaVacia(Integer indiceVecinoCasillaVacia) {
+		this.indiceVecinoCasillaVacia = indiceVecinoCasillaVacia;
 	}
 }
