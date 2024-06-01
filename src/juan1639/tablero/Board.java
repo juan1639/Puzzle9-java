@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import juan1639.entidades.CasillaSwing;
+import juan1639.logica.CheckPuzzleResueltoClass;
 import juan1639.main.Settings;
 
 public class Board extends JFrame {
@@ -64,6 +65,7 @@ public class Board extends JFrame {
 
 			do {
 				numeroRnd = (int) (Math.random() * Settings.NUMERO_CASILLAS);
+				numeroRnd ++;
 			} while (sorteoArray.contains(numeroRnd));
 
 			sorteoArray.add(numeroRnd);
@@ -107,8 +109,10 @@ public class Board extends JFrame {
 	}
 	
 	private static void checkPuzzleResuelto() {
-		// TO DO...
 		
+		if (CheckPuzzleResueltoClass.checkBoard()) {
+			System.out.println("RESUELTO!!");
+		}
 	}
 
 	// Getters & Setters

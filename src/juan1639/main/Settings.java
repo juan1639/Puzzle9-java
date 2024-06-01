@@ -12,7 +12,7 @@ public class Settings {
 	public static final Integer COLUMNAS = 3;
 	
 	public static final Integer NUMERO_CASILLAS = 9;
-	public static final Integer CASILLA_VACIA_INVISIBLE = 0;
+	public static final Integer CASILLA_VACIA_INVISIBLE = 9;
 	
 	public class Colores {
 		

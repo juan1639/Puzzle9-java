@@ -46,7 +46,7 @@ public class CasillaSwing {
 		casillaBoton.setFont(new Font("verdana", Font.BOLD, fontSize));
 		casillaBoton.setEnabled(true);
 		casillaBoton.setFocusable(false);
-		casillaBoton.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1, true));
+		casillaBoton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
 		casillaBoton.setBounds(this.columna * ancho, this.fila * alto, ancho, alto);
 		casillaBoton.setForeground(colorFicha);
 

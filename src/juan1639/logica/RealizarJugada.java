@@ -22,7 +22,8 @@ public class RealizarJugada {
 		this.indiceVecinoCasillaVacia = -999;
 
 		if (checkVecinos()) {
-			Board.swapCasillaVaciaPorJugadaRealizada(getIndiceVecinoCasillaVacia(), this.indice);
+			Board.swapCasillaVaciaPorJugadaRealizada(
+					getIndiceVecinoCasillaVacia(), this.indice);
 		}
 	}
 
@@ -33,34 +34,34 @@ public class RealizarJugada {
 
 		// Check Si hay vecino ARRIBA
 		if (fila - 1 >= 0 && fila - 1 <= 1) {
+			
+			imprimeValorenConsola();
 			//(orden parametros --> filaOffSet, columnaOffSet)
 			if (checkVecinoEsLaCasillaVacia(-1, 0)) return true;
-			
-			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
 
 		// Check Si hay vecino DERECHA
 		if (columna + 1 >= 1 && columna + 1 <= 2) {
+			
+			imprimeValorenConsola();
 			//(orden parametros --> filaOffSet, columnaOffSet)
 			if (checkVecinoEsLaCasillaVacia(0, 1)) return true;
-
-			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
 
 		// Check Si hay vecino ABAJO
 		if (fila + 1 >= 1 && fila + 1 <= 2) {
+			
+			imprimeValorenConsola();
 			//(orden parametros --> filaOffSet, columnaOffSet)
 			if (checkVecinoEsLaCasillaVacia(1, 0)) return true;
-
-			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
 
 		// Check Si hay vecino IZQUIERDA
 		if (columna - 1 >= 0 && columna - 1 <= 1) {
+			
+			imprimeValorenConsola();
 			//(orden parametros --> filaOffSet, columnaOffSet)
 			if (checkVecinoEsLaCasillaVacia(0, -1)) return true;
-
-			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
 		
 		return false;
@@ -79,6 +80,10 @@ public class RealizarJugada {
 		}
 		
 		return false;
+	}
+	
+	private void imprimeValorenConsola() {
+		System.out.println(Board.getArrayCasillas()[indice].getValor());
 	}
 	
 	// Getters & Setters
