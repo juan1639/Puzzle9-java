@@ -102,6 +102,13 @@ public class Board extends JFrame {
 		
 		panel.repaint();
 		//System.out.println("hecho swap");
+		
+		checkPuzzleResuelto();
+	}
+	
+	private static void checkPuzzleResuelto() {
+		// TO DO...
+		
 	}
 
 	// Getters & Setters
