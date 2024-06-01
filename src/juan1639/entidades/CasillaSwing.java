@@ -92,7 +92,6 @@ public class CasillaSwing {
 	private void realizarJugadaClick(Integer valor, Integer indice, Integer fila, Integer columna) {
 
 		RealizarJugada jugada = new RealizarJugada(valor, indice, fila, columna);
-
 	}
 
 	// Getters & Setters

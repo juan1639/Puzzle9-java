@@ -89,7 +89,6 @@ public class Board extends JFrame {
 	}
 	
 	public static void swapCasillaVaciaPorJugadaRealizada(Integer indiceVacia, Integer indice) {
-		
 		// Cambiar valor (Primitivos)
 		arrayCasillas[indiceVacia].setValor(arrayCasillas[indice].getValor());
 		arrayCasillas[indice].setValor(Settings.CASILLA_VACIA_INVISIBLE);
@@ -102,17 +101,7 @@ public class Board extends JFrame {
 		arrayCasillas[indice].getCasillaBoton().setVisible(false);
 		
 		panel.repaint();
-		
-		System.out.println("hecho swap");
-		
-		/*
-		 * panel.remove(arrayCasillas[indice].getCasillaBoton());
-		 * 
-		 * arrayCasillas[indice] = new CasillaXO(fichaXO, indice, fila, columna);
-		 * panel.add(arrayCasillas[indice].getCasillaBoton());
-		 * 
-		 * panel.repaint();
-		 */
+		//System.out.println("hecho swap");
 	}
 
 	// Getters & Setters

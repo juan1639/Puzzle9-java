@@ -22,7 +22,6 @@ public class RealizarJugada {
 		this.indiceVecinoCasillaVacia = -999;
 
 		if (checkVecinos()) {
-			
 			Board.swapCasillaVaciaPorJugadaRealizada(getIndiceVecinoCasillaVacia(), this.indice);
 		}
 	}
