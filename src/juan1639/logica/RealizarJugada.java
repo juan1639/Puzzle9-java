@@ -51,4 +51,12 @@ public class RealizarJugada {
 			System.out.println(Board.getArrayCasillas()[indice].getValor());
 		}
 	}
+	
+	/*
+	 * public Integer checkVecinoEsLaCasillaVacia() {
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
 }

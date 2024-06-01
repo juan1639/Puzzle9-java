@@ -28,7 +28,7 @@ public class CasillaSwing {
 		this.casillaBoton.addMouseListener(eventoRaton());
 	}
 	
-	// Cada casilla es un JButton para que sea "clickable"
+	// Cada casilla es un JButton para que sea "clickable" (o cualquier elemento Swing)
 	public JButton crearCasillaBoton() {
 		
 		int ancho = Settings.TILE_X;
@@ -37,18 +37,20 @@ public class CasillaSwing {
 		//Color colorFicha = valor == Tablero.fichaX ? new Color(5, 80, 220) : new Color(25, 190, 5);
 		Color colorFicha = Settings.Colores.VERDE;
 		
-		casillaBoton = new JButton();
+		casillaBoton = new JButton(this.valor.toString());
 		//casillaBoton.setOpaque(true);
 		//casillaBoton.setText(String.valueOf(this.indice));
-		casillaBoton.setText(this.valor.toString());
+		//casillaBoton.setText(this.valor.toString());
 		casillaBoton.setFont(new Font("verdana", Font.BOLD, fontSize));
 		casillaBoton.setEnabled(true);
 		casillaBoton.setFocusable(false);
 		casillaBoton.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1, true));
 		casillaBoton.setBounds(this.columna * ancho, this.fila * alto, ancho, alto);
 		casillaBoton.setForeground(colorFicha);
-		//casillaBoton.setBackground(Color.BLUE);
-		//panel.add(etiqueta);
+		
+		if (this.valor == 0) {
+			casillaBoton.setVisible(false);
+		}
 		
 		return casillaBoton;
 	}

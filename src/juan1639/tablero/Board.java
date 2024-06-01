@@ -15,12 +15,12 @@ public class Board extends JFrame {
 
 	private static final Integer ANCHO_JFRAME = Settings.TILE_X * 3;
 	private static final Integer ALTO_JFRAME = Settings.TILE_Y * 3;
-	
+
 	private static final Integer NUMERO_CASILLAS = Settings.NUMERO_CASILLAS;
-	
+
 	private static final Integer FILAS = Settings.FILAS;
 	private static final Integer COLUMNAS = Settings.COLUMNAS;
-	
+
 	private static CasillaSwing[] arrayCasillas = new CasillaSwing[NUMERO_CASILLAS];
 	private static ArrayList<Integer> sorteoArray = new ArrayList<>(Settings.NUMERO_CASILLAS);
 	private static JPanel panel;
@@ -34,7 +34,7 @@ public class Board extends JFrame {
 	}
 
 	public void settingsJFrame() {
-		
+
 		int ajusteX = 12, ajusteY = 34;
 
 		setSize(ANCHO_JFRAME + ajusteX, ALTO_JFRAME + ajusteY);
@@ -45,7 +45,7 @@ public class Board extends JFrame {
 		// this.getContentPane().setBackground(Color.BLUE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-	
+
 	public void crearPanel() {
 
 		panel = new JPanel();
@@ -55,42 +55,31 @@ public class Board extends JFrame {
 		panel.setBackground(Color.DARK_GRAY);
 		this.getContentPane().add(panel);
 	}
-	
+
 	public static void sorteoInicialValores() {
-		
+
 		Integer numeroRnd;
-		
-		for (int i = 0; i < Settings.NUMERO_CASILLAS; i ++) {
-			
-			if (i == Settings.NUMERO_CASILLAS - 1) {
-				// 0 = Default
-				sorteoArray.add(0);
-				
-			} else {
-				
-				do {
-					numeroRnd = (int) (Math.random() * Settings.NUMERO_CASILLAS - 1);
-				} while (sorteoArray.contains(numeroRnd));
-					
-				sorteoArray.add(numeroRnd);
-			}
+
+		for (int i = 0; i < Settings.NUMERO_CASILLAS; i++) {
+
+			do {
+				numeroRnd = (int) (Math.random() * Settings.NUMERO_CASILLAS);
+			} while (sorteoArray.contains(numeroRnd));
+
+			sorteoArray.add(numeroRnd);
 		}
-		
+
 		System.out.println(sorteoArray);
 	}
 
 	public static void iniciarComponentesSwing() {
 		// Dibujar el Tablero de Juego / Draw GameBoard
-		
+
 		int i = 0;
 		for (int fila = 0; fila < FILAS; fila++) {
 			for (int col = 0; col < COLUMNAS; col++) {
 				
-				if (col == COLUMNAS -1 && fila == FILAS -1) {
-					continue;
-				}
-
-				CasillaSwing casilla = new CasillaSwing(sorteoArray.get(i) + 1, i, fila, col);
+				CasillaSwing casilla = new CasillaSwing(sorteoArray.get(i), i, fila, col);
 				arrayCasillas[i] = casilla;
 				JButton casillaBoton = casilla.getCasillaBoton();
 				panel.add(casillaBoton);
@@ -99,6 +88,7 @@ public class Board extends JFrame {
 		}
 	}
 
+	// Getters & Setters
 	public static CasillaSwing[] getArrayCasillas() {
 		return arrayCasillas;
 	}
