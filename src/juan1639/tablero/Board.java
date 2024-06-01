@@ -33,7 +33,7 @@ public class Board extends JFrame {
 		iniciarComponentesSwing();
 	}
 
-	public void settingsJFrame() {
+	private void settingsJFrame() {
 
 		int ajusteX = 12, ajusteY = 34;
 
@@ -46,7 +46,7 @@ public class Board extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
-	public void crearPanel() {
+	private void crearPanel() {
 
 		panel = new JPanel();
 		panel.setLayout(null);

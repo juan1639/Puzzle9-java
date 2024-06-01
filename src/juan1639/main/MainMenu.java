@@ -116,8 +116,7 @@ public class MainMenu extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-
+				
 				dispose();
 
 				Board tablero = new Board();

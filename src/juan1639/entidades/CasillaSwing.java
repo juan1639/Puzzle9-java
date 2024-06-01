@@ -29,7 +29,7 @@ public class CasillaSwing {
 	}
 	
 	// Cada casilla es un JButton para que sea "clickable" (o cualquier elemento Swing)
-	public JButton crearCasillaBoton() {
+	private JButton crearCasillaBoton() {
 		
 		int ancho = Settings.TILE_X;
 		int alto = Settings.TILE_Y;
@@ -48,14 +48,14 @@ public class CasillaSwing {
 		casillaBoton.setBounds(this.columna * ancho, this.fila * alto, ancho, alto);
 		casillaBoton.setForeground(colorFicha);
 		
-		if (this.valor == 0) {
+		if (this.valor == Settings.CASILLA_VACIA_INVISIBLE) {
 			casillaBoton.setVisible(false);
 		}
 		
 		return casillaBoton;
 	}
 	
-	public MouseListener eventoRaton() {
+	private MouseListener eventoRaton() {
 		
 		MouseListener oyenteRaton = new MouseListener() {
 
@@ -86,7 +86,7 @@ public class CasillaSwing {
 		return oyenteRaton;
 	}
 	
-	public void realizarJugadaClick(Integer valor, Integer indice, Integer fila, Integer columna) {
+	private void realizarJugadaClick(Integer valor, Integer indice, Integer fila, Integer columna) {
 		
 		RealizarJugada jugada = new RealizarJugada(valor, indice, fila, columna);
 		
