@@ -98,4 +98,12 @@ public class Board extends JFrame {
 			}
 		}
 	}
+
+	public static CasillaSwing[] getArrayCasillas() {
+		return arrayCasillas;
+	}
+
+	public static void setArrayCasillas(CasillaSwing[] arrayCasillas) {
+		Board.arrayCasillas = arrayCasillas;
+	}
 }

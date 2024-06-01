@@ -76,7 +76,7 @@ public class MainMenu extends JFrame {
 		 * (ANCHO_JFRAME / 1.5), (int) (ALTO_JFRAME / 7));
 		 */
 
-		titulo.setForeground(Settings.AZUL);
+		titulo.setForeground(Settings.Colores.AZUL);
 		// etiquetaGO.setOpaque(true);
 
 		panel.add(titulo);
@@ -104,7 +104,7 @@ public class MainMenu extends JFrame {
 		 */
 
 		// botonNG.setOpaque(true);
-		botonJugar.setForeground(Settings.AZUL_CLARO);
+		botonJugar.setForeground(Settings.Colores.AZUL_CLARO);
 		
 		//panel.add(botonJugar);
 		panel.add(botonJugar, BorderLayout.SOUTH);
@@ -132,14 +132,12 @@ public class MainMenu extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				
-				botonJugar.setForeground(Settings.AMARILLO);
+				botonJugar.setForeground(Settings.Colores.AMARILLO);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				
-				botonJugar.setForeground(Settings.AZUL_CLARO);
+				botonJugar.setForeground(Settings.Colores.AZUL_CLARO);
 			}
 		};
 

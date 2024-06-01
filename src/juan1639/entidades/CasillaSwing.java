@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
+import juan1639.logica.RealizarJugada;
 import juan1639.main.Settings;
 
 public class CasillaSwing {
@@ -34,7 +35,7 @@ public class CasillaSwing {
 		int alto = Settings.TILE_Y;
 		int fontSize = (int) (alto / 1.2);
 		//Color colorFicha = valor == Tablero.fichaX ? new Color(5, 80, 220) : new Color(25, 190, 5);
-		Color colorFicha = Settings.VERDE;
+		Color colorFicha = Settings.Colores.VERDE;
 		
 		casillaBoton = new JButton();
 		//casillaBoton.setOpaque(true);
@@ -61,8 +62,8 @@ public class CasillaSwing {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				
-				System.out.println("click");
+				// System.out.println(e.getSource());
+				realizarJugadaClick(valor, indice, fila, columna);
 			}
 
 			@Override
@@ -71,16 +72,22 @@ public class CasillaSwing {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				casillaBoton.setForeground(Settings.VERDE_CLARO);
+				casillaBoton.setForeground(Settings.Colores.VERDE_CLARO);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				casillaBoton.setForeground(Settings.VERDE);
+				casillaBoton.setForeground(Settings.Colores.VERDE);
 			}
 		};
 		
 		return oyenteRaton;
+	}
+	
+	public void realizarJugadaClick(Integer valor, Integer indice, Integer fila, Integer columna) {
+		
+		RealizarJugada jugada = new RealizarJugada(valor, indice, fila, columna);
+		
 	}
 	
 	// Getters & Setters
