@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -42,6 +41,7 @@ public class MainMenu extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setMinimumSize(new Dimension(300, 200));
+		setVisible(true);
 		// this.getContentPane().setBackground(Color.BLUE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -54,24 +54,21 @@ public class MainMenu extends JFrame {
 		crearBotonJugar();
 		
 		// panel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2, true));
-		// panel.setBackground(Color.DARK_GRAY);
+		panel.setBackground(Color.LIGHT_GRAY);
 		this.getContentPane().add(panel);
 	}
 
 	public void crearEtiquetas() {
 
 		String txt = "P U Z Z L E - 9";
-		int x = (int) (ANCHO_JFRAME / 2);
+		// int x = (int) (ANCHO_JFRAME / 2);
 
 		titulo = new JLabel(txt);
+		titulo.setFont(new Font("verdana", Font.BOLD, 55));
 
-		Font fuente = new Font("arial", Font.BOLD, 60);
-		titulo.setFont(fuente);
-
-		FontMetrics fm = titulo.getFontMetrics(fuente);
-		int txtWidth = fm.stringWidth(txt);
+		// FontMetrics fm = titulo.getFontMetrics(fuente);
+		// int txtWidth = fm.stringWidth(txt);
 		
-		//titulo.setAlignmentX(SwingConstants.CENTER);
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		/*
@@ -90,7 +87,7 @@ public class MainMenu extends JFrame {
 		
 		botonJugar = new JButton("Play");
 		
-		botonJugar.setFont(new Font("arial", Font.BOLD, 45));
+		botonJugar.setFont(new Font("verdana", Font.BOLD, 45));
 		// botonNG.setSize((int) (goX / 1.3), (int) (goY / 8));
 		botonJugar.setFocusable(false);
 		botonJugar.setBorder(null);
@@ -136,7 +133,7 @@ public class MainMenu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				
-				botonJugar.setForeground(Settings.AZUL);
+				botonJugar.setForeground(Settings.AMARILLO);
 			}
 
 			@Override
