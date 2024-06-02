@@ -24,8 +24,10 @@ public class MainMenu extends JFrame {
 
 	private final static Integer ANCHO_JFRAME = Settings.TILE_X * 3;
 	private final static Integer ALTO_JFRAME = Settings.TILE_Y * 2;
-
+	
 	public MainMenu() {
+		
+		Settings.setPreJuego(true);
 
 		settingsJFrame();
 		crearPanel();
@@ -85,7 +87,7 @@ public class MainMenu extends JFrame {
 
 	public void crearBotonJugar() {
 		
-		botonJugar = new JButton("Play");
+		botonJugar = new JButton("Nueva Partida");
 		
 		botonJugar.setFont(new Font("verdana", Font.BOLD, 45));
 		// botonNG.setSize((int) (goX / 1.3), (int) (goY / 8));

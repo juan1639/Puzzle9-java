@@ -68,7 +68,9 @@ public class CasillaSwing {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// System.out.println(e.getSource());
-				realizarJugadaClick(valor, indice, fila, columna);
+				if (Settings.isEnJuego()) {
+					realizarJugadaClick(valor, indice, fila, columna);
+				}
 			}
 
 			@Override

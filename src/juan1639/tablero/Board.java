@@ -2,17 +2,21 @@ package juan1639.tablero;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import juan1639.entidades.CasillaSwing;
 import juan1639.logica.CheckPuzzleResueltoClass;
+import juan1639.main.OptionPanePrePost;
 import juan1639.main.Settings;
 
-public class Board extends JFrame {
+public class Board extends JFrame implements ActionListener {
 
 	private static final Integer ANCHO_JFRAME = Settings.TILE_X * 3;
 	private static final Integer ALTO_JFRAME = Settings.TILE_Y * 3;
@@ -24,16 +28,21 @@ public class Board extends JFrame {
 
 	private static CasillaSwing[] arrayCasillas = new CasillaSwing[NUMERO_CASILLAS];
 	private static ArrayList<Integer> sorteoArray = new ArrayList<>(Settings.NUMERO_CASILLAS);
-	private static JPanel panel;
-
+	public static JPanel panel;
+	
+	private Timer timer;
+	
 	public Board() {
 
 		settingsJFrame();
 		crearPanel();
 		sorteoInicialValores();
 		iniciarComponentesSwing();
+		timer = new Timer(1000, this);
+		timer.start();
+		timer.setRepeats(false);
 	}
-
+	
 	private void settingsJFrame() {
 
 		int ajusteX = 12, ajusteY = 34;
@@ -111,8 +120,18 @@ public class Board extends JFrame {
 	private static void checkPuzzleResuelto() {
 		
 		if (CheckPuzzleResueltoClass.checkBoard()) {
+			
 			System.out.println("RESUELTO!!");
+			Settings.setEnJuego(false);
+			Settings.setPuzzleResuelto(true);
+			
+			OptionPanePrePost.preJuegoDialog();
 		}
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		OptionPanePrePost.preJuegoDialog();
 	}
 
 	// Getters & Setters
