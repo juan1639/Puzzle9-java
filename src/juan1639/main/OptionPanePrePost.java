@@ -36,8 +36,12 @@ public class OptionPanePrePost {
 				System.exit(0);
 
 			} else if (gameoverPane == JOptionPane.YES_OPTION) {
+				// "resets" para Nueva Partida...
+				Settings.setPuzzleResuelto(false);
+				Settings.setEnJuego(true);
 
-				// reset_rejugar();
+				Board.sorteoInicialValores(true);
+				Board.iniciarComponentesSwing();
 			}
 		}
 	}

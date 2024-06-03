@@ -28,15 +28,16 @@ public class Board extends JFrame implements ActionListener {
 
 	private static CasillaSwing[] arrayCasillas = new CasillaSwing[NUMERO_CASILLAS];
 	private static ArrayList<Integer> sorteoArray = new ArrayList<>(Settings.NUMERO_CASILLAS);
-	public static JPanel panel;
+	private static Boolean resetBoard = Settings.getResetBoard();	
 	
+	public static JPanel panel;
 	private Timer timer;
 	
 	public Board() {
 
 		settingsJFrame();
 		crearPanel();
-		sorteoInicialValores();
+		sorteoInicialValores(resetBoard);
 		iniciarComponentesSwing();
 		timer = new Timer(1000, this);
 		timer.start();
@@ -66,8 +67,10 @@ public class Board extends JFrame implements ActionListener {
 		this.getContentPane().add(panel);
 	}
 
-	public static void sorteoInicialValores() {
-
+	public static void sorteoInicialValores(Boolean resetTablero) {
+		// Resetear Tablero SI volvermos a rejugar
+		if (resetTablero || sorteoArray.size() > 0) sorteoArray.clear();
+		
 		Integer numeroRnd;
 
 		for (int i = 0; i < Settings.NUMERO_CASILLAS; i++) {
@@ -79,13 +82,21 @@ public class Board extends JFrame implements ActionListener {
 
 			sorteoArray.add(numeroRnd);
 		}
-
+		
 		System.out.println(sorteoArray);
 	}
 
 	public static void iniciarComponentesSwing() {
+		// Reseteamos SIEMPRE (rejugar y de paso siempre)
+		for (int i = 0; i < NUMERO_CASILLAS; i ++) {
+			arrayCasillas[i] = null;
+		}
+		
+		// Tambien Vaciamos el panel y lo repintamos siempre
+		panel.removeAll();
+		panel.repaint();
+		
 		// Dibujar el Tablero de Juego / Draw GameBoard
-
 		int i = 0;
 		for (int fila = 0; fila < FILAS; fila++) {
 			for (int col = 0; col < COLUMNAS; col++) {
@@ -119,7 +130,7 @@ public class Board extends JFrame implements ActionListener {
 	
 	private static void checkPuzzleResuelto() {
 		
-		if (CheckPuzzleResueltoClass.checkBoard()) {
+		if (CheckPuzzleResueltoClass.checkBoard() && Settings.isEnJuego()) {
 			
 			System.out.println("RESUELTO!!");
 			Settings.setEnJuego(false);

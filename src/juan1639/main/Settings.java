@@ -17,6 +17,7 @@ public class Settings {
 	private static Boolean preJuego = true;
 	private static Boolean enJuego = false;
 	private static Boolean puzzleResuelto = false;
+	private static Boolean resetBoard = false;
 	
 	public class Colores {
 
@@ -52,5 +53,13 @@ public class Settings {
 
 	public static void setPuzzleResuelto(Boolean puzzleResolve) {
 		puzzleResuelto = puzzleResolve;
+	}
+
+	public static Boolean getResetBoard() {
+		return resetBoard;
+	}
+
+	public static void setResetBoard(Boolean resetBoard) {
+		Settings.resetBoard = resetBoard;
 	}
 }
